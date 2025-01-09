@@ -24,7 +24,5 @@
             <li><a class ="no-underline" href="#">Cookie Policy</a></li>
         </ul>
     </footer>
-
-    <script src="./../../js/script.js"></script>
 </body>
 </html>

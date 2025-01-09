@@ -1,17 +1,21 @@
 <?php
-require('../layout/header.php'); 
+require_once('../layout/header.php'); 
 if(session_status() === PHP_SESSION_NONE) session_start();
 
 if(!isset($_SESSION["email"])){
     echo "<div class =\"title user\"><h1>Hellow Guest</h1><br><h3>You will soon be redirect to the Login Page</h1></div>";
-    header("Refresh:10;URL= ./loginPage.php");
-   
+    header("Refresh:3; URL = ./loginPage.php");
+
+$message = "This is an alert message!";
+// Output JavaScript to display an alert
+echo "<script>alert('$message');</script>";
+   exit();
     //header("location: ../loginManager/login.php");
 }
 else{
     if($_SESSION['stato'] == -1){
         header('location: ./../pages/adminArea.php');
-    }
+    }else{
 ?>
 <section class="personal-area">
     <div class ="user">
@@ -25,12 +29,13 @@ else{
         </div>
     </div>
     <div class="view">
-        <?php  require ("../layout/reservationTable.php");?>
+        <?php  require ("../layout/reservations.php");?>
     </div>
 </section>
 
 <?php    
-    require('../layout/footer.php'); 
+    require_once('../layout/footer.php'); 
+    }   
 }
 
 ?>

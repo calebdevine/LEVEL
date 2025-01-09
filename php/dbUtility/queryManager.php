@@ -43,7 +43,19 @@
 		return fromSQLtoArray($result,'ASSOC');
 	}
 
-		
+	function getCourseByid($id){
+		global $levelDB;
+		$queryText = 	"
+						SELECT *
+						FROM course
+						WHERE courseId = '$id';
+					";
+		$result = $levelDB->performQuery($queryText);
+		$levelDB->closeConnection();
+		return fromSQLtoArray($result,'ASSOC');
+	}
+	
+	
 	function getCoursesByDay($day){
 		global $levelDB;
 		$queryText = 	"
@@ -99,6 +111,13 @@
 		$levelDB->closeConnection();
 	 	return $result;
 	}
+	function deleteReservation($userId, $courseId){
+		global $levelDB;
+		$queryText = "DELETE FROM `reservations` WHERE `userId` = '$userId'	AND `courseId` = '$courseId'";
+		$result = $levelDB->performQuery($queryText);
+		$levelDB->closeConnection();
+		return $result;
+	}
 
 	function maxReservation($id){
 		global $levelDB;
@@ -115,6 +134,22 @@
 	   	}else{
 			return -1;
 	   	}
+	}
+
+	function reservedCorseForUserId($userId, $courseId){
+		global $levelDB;
+		$queryText = 	"
+						SELECT * FROM reservations
+						WHERE userId = '$userId' AND courseId = '$courseId';
+		";
+		$result = $levelDB->performQuery($queryText);
+		$levelDB->closeConnection();
+		$result = fromSQLtoArray($result,'ASSOC');
+		if(count($result) > 0){
+			return 1;
+			}else{
+				return 0;
+		}
 	}
 
 

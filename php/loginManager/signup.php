@@ -15,19 +15,19 @@
             header('location: ./../pages/signupFailPage.php');
             return;
         }
-        global $bebDB;
-        $_POST['nome'] = $bebDB->sqlInjectionFilter($_POST['nome']);
-		$_POST['cognome'] = $bebDB->sqlInjectionFilter($_POST['cognome']);
-		$_POST['codiceFiscale'] = $bebDB->sqlInjectionFilter($_POST['codiceFiscale']);
-		$_POST['email'] = $bebDB->sqlInjectionFilter($_POST['email']);
-		$_POST['password'] = $bebDB->sqlInjectionFilter($_POST['password']);
-        $_POST['telefono'] = $bebDB->sqlInjectionFilter($_POST['telefono']);
+        global $levelDB;
+        $_POST['nome'] = $levelDB->sqlInjectionFilter($_POST['nome']);
+		$_POST['cognome'] = $levelDB->sqlInjectionFilter($_POST['cognome']);
+		$_POST['codiceFiscale'] = $levelDB->sqlInjectionFilter($_POST['codiceFiscale']);
+		$_POST['email'] = $levelDB->sqlInjectionFilter($_POST['email']);
+		$_POST['password'] = $levelDB->sqlInjectionFilter($_POST['password']);
+        $_POST['telefono'] = $levelDB->sqlInjectionFilter($_POST['telefono']);
         
         $_POST['password']=password_hash($_POST['password'],PASSWORD_DEFAULT);
 
         $queryText = "INSERT INTO user (name, surname, idCode, email, password, phone, state) VALUES ('{$_POST['nome']}','{$_POST['cognome']}','{$_POST['codiceFiscale']}','{$_POST['email']}','{$_POST['password']}','{$_POST['telefono']}','1');";
-        $result = $bebDB->performQuery($queryText);
-        $bebDB->closeConnection();
+        $result = $levelDB->performQuery($queryText);
+        $levelDB->closeConnection();
         if($result==true){
             header('location: ./../pages/signupSuccessPage.php');
         }
@@ -43,12 +43,12 @@
         altri utenti con la medesima email
     */
     function checkDouble(){
-        global $bebDB;
-		$_POST['email'] = $bebDB->sqlInjectionFilter($_POST['email']);
+        global $levelDB;
+		$_POST['email'] = $levelDB->sqlInjectionFilter($_POST['email']);
         $queryText = "SELECT * FROM user where email=\"{$_POST['email']}\";";
-        $result = $bebDB->performQuery($queryText);
+        $result = $levelDB->performQuery($queryText);
         $numRow = mysqli_num_rows($result);
-        $bebDB->closeConnection();
+        $levelDB->closeConnection();
 		if ($numRow == 0)
             return true;
         return false;

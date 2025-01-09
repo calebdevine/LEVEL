@@ -1,0 +1,30 @@
+.hideButton{
+    opacity: 0.4;
+}
+.alert{
+    color: red;
+    font-weight: bold;
+}
+
+#btn-form.reserv{
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+#btn-form.reserv:hover {
+    background-color: #45a049;
+}
+
+#btn-form.delete{
+    background-color: #f44336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+}
+#btn-form.delete:hover {
+    background-color: #e91e63;
+}
