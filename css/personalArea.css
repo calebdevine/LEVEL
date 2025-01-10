@@ -1,0 +1,86 @@
+
+.log{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1%;
+    border-radius: 8px;
+    /* background-image: ; */
+}
+.login{
+    margin: 60px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50%;
+
+}
+.preform{
+    font-size: large;
+    text-align: center;
+    width: 100%;
+    background-color: var(--lightGrey);
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 10%;
+}
+.login-form{
+    font-size: large;
+    text-align: center;
+}
+.login-form form label{
+    text-align: center;
+    margin-top: 10px;
+    padding: 2%;
+}
+.login-form form input{
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    padding: 2%;
+}
+.logErr{
+    margin: 20px;
+    background-color: var(--lightGrey);
+    color: rgb(233, 61, 61);
+    border-radius: 8px;
+    width: 100%;
+    text-align: center;
+}
+.title{
+    font-weight: bold;
+    background-color: var(--myColor, 0.7) ;
+    font-size:x-large;
+    color: var(--light);
+    border-radius: 12px;
+    width: 100%;
+
+}
+
+.subtitle{
+    font-weight: bold;
+    background-color: var(--myColor, 0.7) ;
+    font-size:large;
+    color: var(--light);
+    width: 100%;
+    margin: 0;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 8px;
+    text-align: center;
+    padding: 10px;
+}
+
+.click:hover{
+    opacity: 0.5;
+}
+
+.greatings{
+    text-align: center;
+    padding: 20px;
+    font-weight: bold;
+    font-size:x-large;
+    color: black;
+    margin: solid 2px gold ;
+}

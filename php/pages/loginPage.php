@@ -4,9 +4,6 @@
 ?>
 <link rel="stylesheet" href="./../../css/login.css">
 <section class="log">
-    <div class="title">
-        <h1>Area Personale</h1>
-    </div>
     <div class="login">
         <div class="subtitle">
             <h2>Login</h2>

@@ -17,6 +17,21 @@
 		return  $result;
 
 	}
+
+	function getUserInfo($email){
+		global $levelDB;
+		$email = $levelDB->sqlInjectionFilter($email);
+		$queryText = "SELECT * FROM user WHERE email=\"$email\";";
+		$result = $levelDB->performQuery($queryText);
+		$levelDB->closeConnection();
+		if (mysqli_num_rows($result) != 1){
+			return -1;
+		}else{
+			return fromSQLtoArray($result,"ASSOC");
+		}
+	}
+
+
 	function fromSQLtoArray($SQLresult,$type){
 		if($SQLresult==false) return [];
 		if($type=='BOTH')return $SQLresult->fetch_all(MYSQLI_BOTH);
