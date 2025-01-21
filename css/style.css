@@ -648,3 +648,8 @@ figcaption{
     }
 }
 
+@media (max-width: 600px) {
+    .contacts .social-text{
+        display: none;
+    }
+}
